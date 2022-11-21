@@ -133,9 +133,11 @@ public class PlayerController : MonoBehaviour
         zombieBoss.transform.position = Spawn1.position;
         for (int i = 0; i < numberOfEnemy; i++)
         {
-
+            
             GameObject zombieGirls = GameObject.Instantiate(NormalZom);
+            Spawn1.position = new Vector3(Spawn1.position.x, Spawn1.position.y, Spawn1.position.z + i);
             zombieGirls.transform.position = Spawn1.position;
+            
 
         }
     }
