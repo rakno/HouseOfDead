@@ -15,6 +15,7 @@ public class ZombieGirlScript : MonoBehaviour
         GameObject go = GameObject.FindWithTag("mainPlayer");
         mainPlayer = go.GetComponent<player>();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = 1;
     }
 
     private void FixedUpdate()

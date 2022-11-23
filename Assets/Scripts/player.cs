@@ -5,18 +5,23 @@ using UnityEngine.AI;
 
 public class player : MonoBehaviour
 {
-    
-    
-    float playerHealth = 100;
 
+   
     
-
-    private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("zombieBoss"))
         {
-            playerHealth = playerHealth - 1;
-            if(playerHealth<=0)
+            Transform panelTransform = GameObject.Find("Panel").transform;
+            
+            foreach (Transform child in panelTransform)
+            {
+                Destroy(child.gameObject);
+                break;
+            }
+
+            
+            if(panelTransform.childCount<=0)
             {
                 GameObject.Destroy(gameObject);
                 Debug.Log("player died");
@@ -24,8 +29,14 @@ public class player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("zombieGirls"))
         {
-            playerHealth = playerHealth - 1;
-            if (playerHealth <= 0)
+            Transform panelTransform = GameObject.Find("Panel").transform;
+
+            foreach (Transform child in panelTransform)
+            {
+                Destroy(child.gameObject);
+                break;
+            }
+            if (panelTransform.childCount <= 0)
             {
                 GameObject.Destroy(gameObject);
                 Debug.Log("player died");
